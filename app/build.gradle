@@ -1,0 +1,63 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "company.tap.samsungpayexample"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            it.buildConfigField('String', 'SPAY_SERVICE_ID', '"0b58b1bdcefa481fa99dc7"')
+            it.buildConfigField('String', 'NOONPAY_AUTH_SCHEME', '"KEY_LIVE"')
+            it.buildConfigField('String', 'NOONPAY_BUSINESS_ID', '"noonpayments.samsungpay"')
+            it.buildConfigField('String', 'NOONPAY_KEY', '"d9d4ce67a5c64ceda643a9377afc1f84"')
+            it.buildConfigField('String', 'NOONPAY_ORDER_API', '"https://api.noonpayments.com/payment/v1/order"')
+        }
+        debug{
+            it.buildConfigField('String', 'SPAY_SERVICE_ID', '"0b58b1bdcefa481fa99dc7"')
+            it.buildConfigField('String', 'NOONPAY_AUTH_SCHEME', '"KEY_LIVE"')
+            it.buildConfigField('String', 'NOONPAY_BUSINESS_ID', '"noonpayments.samsungpay"')
+            it.buildConfigField('String', 'NOONPAY_KEY', '"d9d4ce67a5c64ceda643a9377afc1f84"')
+            it.buildConfigField('String', 'NOONPAY_ORDER_API', '"https://api.noonpayments.com/payment/v1/order"')
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+   // implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.3.0'
+
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    compileOnly files('libs/samsungpay-1.8.00.jar')
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.fasterxml.jackson.core:jackson-core:2.9.4'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.4'
+    implementation 'com.android.support.constraint:constraint-layout:2.0.4'
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.annotation:annotation:1.0.2'
+    implementation 'com.android.volley:volley:1.1.0'
+    implementation("androidx.appcompat:appcompat:1.2.0")
+}
